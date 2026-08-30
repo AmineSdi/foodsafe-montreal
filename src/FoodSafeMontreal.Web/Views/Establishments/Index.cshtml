@@ -1,0 +1,70 @@
+@model FoodSafeMontreal.Web.Models.Establishments.EstablishmentIndexViewModel
+
+@{
+    ViewData["Title"] = "Établissements";
+}
+
+<section class="page-heading">
+    <div>
+        <span class="eyebrow">MVP · Données de démonstration</span>
+        <h1>Établissements alimentaires</h1>
+        <p class="text-secondary mb-0">
+            Recherchez par nom, adresse, ville ou catégorie. L’importation des données officielles sera ajoutée au prochain incrément.
+        </p>
+    </div>
+    <span class="result-count">@Model.Establishments.Count résultat(s)</span>
+</section>
+
+<form method="get" class="search-panel" role="search">
+    <label for="q" class="form-label">Recherche</label>
+    <div class="input-group">
+        <input id="q"
+               name="q"
+               value="@Model.SearchTerm"
+               class="form-control"
+               placeholder="Ex. café, épicerie, rue du Canal"
+               autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+        @if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
+        {
+            <a asp-action="Index" class="btn btn-outline-secondary">Effacer</a>
+        }
+    </div>
+</form>
+
+@if (Model.Establishments.Count == 0)
+{
+    <div class="empty-state">
+        <h2>Aucun établissement trouvé</h2>
+        <p>Essayez un autre nom, une autre adresse ou une autre catégorie.</p>
+    </div>
+}
+else
+{
+    <div class="table-responsive data-panel">
+        <table class="table align-middle mb-0">
+            <thead>
+                <tr>
+                    <th>Établissement</th>
+                    <th>Catégorie</th>
+                    <th>Adresse</th>
+                    <th>Identifiant source</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var establishment in Model.Establishments)
+                {
+                    <tr>
+                        <td class="fw-semibold">@establishment.Name</td>
+                        <td><span class="category-badge">@establishment.Category</span></td>
+                        <td>
+                            @establishment.Address<br />
+                            <span class="text-secondary">@establishment.City</span>
+                        </td>
+                        <td><code>@establishment.ExternalBusinessId</code></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

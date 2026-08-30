@@ -1,0 +1,27 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# Local .NET and NuGet state used in this workspace
+.dotnet-home/
+.nuget/
+
+# IDE files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local configuration and secrets
+appsettings.Local.json
+*.secrets.json
+
+# Test results
+TestResults/
+coverage/
+*.trx

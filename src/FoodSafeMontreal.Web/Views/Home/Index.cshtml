@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Accueil";
+}
+
+<section class="hero">
+    <div class="hero-copy">
+        <span class="eyebrow">ASP.NET Core MVC · MVP</span>
+        <h1>Des données publiques vers un suivi de conformité clair.</h1>
+        <p>
+            FoodSafe Montréal prépare l’importation, la recherche et l’analyse des données publiques
+            sur les établissements alimentaires de la Ville de Montréal.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+            <a asp-controller="Establishments" asp-action="Index" class="btn btn-primary btn-lg">
+                Explorer le MVP
+            </a>
+            <a href="https://donnees.montreal.ca/dataset/etablissements-alimentaires"
+               class="btn btn-outline-dark btn-lg"
+               target="_blank"
+               rel="noopener noreferrer">
+                Voir la source officielle
+            </a>
+        </div>
+    </div>
+    <aside class="hero-card">
+        <span class="status-dot"></span>
+        <strong>Fondation prête</strong>
+        <ul>
+            <li>Architecture en couches</li>
+            <li>Recherche MVC fonctionnelle</li>
+            <li>Dépôt en mémoire remplaçable</li>
+            <li>Tests unitaires</li>
+        </ul>
+    </aside>
+</section>
+
+<section class="feature-grid" aria-label="Prochaines étapes">
+    <article>
+        <span>01</span>
+        <h2>Importer</h2>
+        <p>Télécharger et valider les fichiers CSV officiels sans bloquer l’interface.</p>
+    </article>
+    <article>
+        <span>02</span>
+        <h2>Conserver</h2>
+        <p>Détecter les doublons et enregistrer les changements dans une base relationnelle.</p>
+    </article>
+    <article>
+        <span>03</span>
+        <h2>Analyser</h2>
+        <p>Relier les condamnations publiées et gérer un workflow de vérification interne.</p>
+    </article>
+</section>
